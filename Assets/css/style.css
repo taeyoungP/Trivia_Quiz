@@ -1,0 +1,52 @@
+body{
+    font-family: sans-serif;  
+}
+
+#start {
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+    font-size: 200%;
+}
+
+#startButton{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+}
+
+#scoreboard {
+    margin: 2px;
+}
+
+#scoreboard a {
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+}
+
+#playbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#optionList{
+    background-color:blueviolet;
+    color: white;
+}
+
+.optionBtn {
+    background-color:blueviolet;
+    color: white;
+    text-decoration: none;
+    margin: 2px;
+}
