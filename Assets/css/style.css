@@ -23,11 +23,8 @@ button:hover {
     justify-content: space-between;
 }
 
-#scoreboard {
+#scoreBoardBtn {
     margin: 2px;
-}
-
-#scoreboard a {
     background-color: blue;
     color: white;
     text-decoration: none;

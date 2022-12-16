@@ -194,23 +194,23 @@ function continuePlay(){
 startButtonEl.addEventListener("click", startGame);
 
 
-//////////////////////////////////////////////////////////////////////////////////////////
-//question: using same js for two different html, but can't getElement  from the other one
-//should I create separate js file for each of the html?? --> put everything in one html
-// maybe clear everything and replace 
-var user_list = document.getElementById("#user_list"); 
-console.log(user_list);
-function showScoreBoard() {
-    var user = JSON.parse(localStorage.getItem("players"));
+////FOR SCOREBOARD//////////////////////////////////////////////////////////////////////////////////////
+scoreBoardBtn.addEventListener("click", showScoreBoard);
 
+function showScoreBoard() {
+    clearInterval(timer);
+    playboxEl.textContent = "";
+    startButtonEl.setAttribute("style", "display: none;");
+    var scoreHeader = document.createElement("h1");
+    scoreHeader.textContent = "SCORE BOARD";
+    var user = JSON.parse(localStorage.getItem("players"));
+    var score_ul = document.createElement("ol");
     for(var i=0; i<user.length; i++){
         var score_li = document.createElement("li");
-        score_li.textContent = user[i].Name + " : " + user[i].Score;
-        console.log(user[i].Name + " : " + user[i].Score);
-        console.log(score_li);
-        user_list.appendChild(score_li);
+        score_li.innerHTML = "player name: " + user[i].Name + " &emsp; score: " + user[i].Score;
+        score_ul.appendChild(score_li);
     }
+    playboxEl.appendChild(scoreHeader);
+    playboxEl.appendChild(score_ul);
+    scoreBoardBtn.disabled = true;
 }
-
-
-showScoreBoard();
