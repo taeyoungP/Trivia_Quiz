@@ -57,7 +57,8 @@ function startCountDown() {
             playboxEl.appendChild(endScore);
             
             userForm();
-            endScore.textContent = "Thank you! Your score has been recorded."
+
+            
         }
     }, 1000);
 }
@@ -66,7 +67,9 @@ function userForm () {
     var form = document.createElement("form");
     var name = document.createElement("input");
     var submit = document.createElement("button");
+ 
     submit.textContent = "submit";
+    submit.setAttribute("id", "submit");
 
     playboxEl.appendChild(form);
     form.appendChild(name);
@@ -89,9 +92,15 @@ function userForm () {
 
         }
         //store name and score
-        
         //render
+        //submit.onclick = function(){
+        //    playboxEl.textContent = "Thank you! Your score has been recorded!";
+        //}
+
     })
+
+
+
 
 }
 
@@ -107,7 +116,6 @@ function play(i) {
         playboxEl.appendChild(endScore);
 
         userForm();
-        endScore.textContent = "Thank you! Your score has been recorded."
         return;
     }
 
@@ -179,21 +187,30 @@ function continuePlay(){
     setTimeout(function() {
         i++;
         play(i);
-    }, 1500);
+    }, 1200);
 }
 
 // EventListener for starting game when click the startGame button
-startButton.addEventListener("click", startGame);
+startButtonEl.addEventListener("click", startGame);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
+//question: using same js for two different html, but can't getElement  from the other one
+//should I create separate js file for each of the html?? --> put everything in one html
+// maybe clear everything and replace 
+var user_list = document.getElementById("#user_list"); 
+console.log(user_list);
 function showScoreBoard() {
-    var score_ul = document.getElementById("#user_list");
     var user = JSON.parse(localStorage.getItem("players"));
 
     for(var i=0; i<user.length; i++){
         var score_li = document.createElement("li");
-        score_li.textContent("Player: " + puser[i].Name + "  Score: " + user[i].Score);
-        score_ul.appendChild(score_li);
+        score_li.textContent = user[i].Name + " : " + user[i].Score;
+        console.log(user[i].Name + " : " + user[i].Score);
+        console.log(score_li);
+        user_list.appendChild(score_li);
     }
 }
+
+
+showScoreBoard();
