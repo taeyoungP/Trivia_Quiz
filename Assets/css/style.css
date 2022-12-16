@@ -1,17 +1,41 @@
 body{
     font-family: sans-serif;  
+    background-color: rgb(208, 255, 222);
 }
 
-#start {
+#start{
     background-color: blue;
     color: white;
     border-radius: 8px;
-    font-size: 200%;
+    font-size: 300%;
+}
+
+#start:hover {
+    color: gold;
+}
+
+#startHeader{
+    display: flex;
+    justify-content: center;
+    font-size: 300%;
+}
+
+#startHeader::after, #startHeader::before{
+    content: "🌞";
+}
+
+#restart {
+    background-color: purple;
+    color: white;
+    border-radius: 8px;
+    font-size: 150%;
+    margin: 4% 0;
 }
 
 #startButton{
     display: flex;
     justify-content: space-evenly;
+    margin: 4% 0;
 }
 
 button:hover {
@@ -23,11 +47,28 @@ button:hover {
     justify-content: space-between;
 }
 
+#countdown {
+    margin: 2px;
+    padding: 5px;
+    font-size: 120%;
+    font-weight: bolder;
+}
+
 #scoreBoardBtn {
     margin: 2px;
     background-color: blue;
     color: white;
     text-decoration: none;
+    border: none;
+    font-size: 100%;
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#scoreBoardBtn:hover{
+    background: blueviolet;
+    color: gold;
 }
 
 #playbox, #board, #user-list {
@@ -36,18 +77,29 @@ button:hover {
     align-items: center;
 }
 
-#optionList{
-    background-color:blueviolet;
-    color: white;
+#playbox {
+    font-size: 150%;
+    font-weight: bolder;
+    margin: 4% 0;
 }
 
-.optionBtn {
+.optionButtons {
     background-color:blueviolet;
     color: white;
-    text-decoration: none;
-    margin: 2px;
+    border: none;
+    font-size: 100%;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.optionButtons:hover {
+    background-color: blue;
+    color: gold;
 }
 
 #submit {
-    align-items: center;
+    margin: 1px;
+    background-color: blue;
+    color: white;
 }
+

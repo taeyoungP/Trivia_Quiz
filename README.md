@@ -1,17 +1,14 @@
-# 04 Web APIs: Code Quiz
+# Trivia Quiz
 
-## Your Task
+## Task for Trivia Quiz Project
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+This Challenge is to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code. It will have a clean, polished, and responsive user interface. 
 
-To help familiarize you with these tests and allow you to use the skills covered in this module, this Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
-
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
 ## User Story
 
 ```
-AS A coding boot camp student
+AS A a student who wants to study JavaScript
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
@@ -37,6 +34,15 @@ THEN I can save my initials and my score
 The following animation demonstrates the application functionality:
 
 ![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+
+## Description
+Description of the project including the example images
+
+## How to Use and Play
+Guide for how to play, explanation for button and user interface
+
+## Credits
+Include any tutorial or reference materials that are used and helped to build this project.
 
 ## Grading Requirements
 
