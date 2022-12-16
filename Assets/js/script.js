@@ -82,14 +82,8 @@ function userForm () {
         if(nameText === "") {
             alert("Please input player name.");
         } else{
-            var player = {
-                Name: nameText,
-                Score: score
-            };
-            players.push(player);
-            localStorage.setItem("players", JSON.stringify(players));
+            storePlayer(nameText);
             form.remove();
-
         }
         //store name and score
         //render
@@ -98,10 +92,18 @@ function userForm () {
         //}
 
     })
+}
 
-
-
-
+function storePlayer(nameText) {
+    var player = [nameText, score];
+    var prevPlayer = JSON.parse(localStorage.getItem("players"));
+    if(prevPlayer !== null){
+        for(var i=0; i<prevPlayer.length; i++){
+            players.push(prevPlayer[i]);
+        }
+    }
+    players.push(player);
+    localStorage.setItem("players", JSON.stringify(players));
 }
 
 function play(i) {
@@ -205,9 +207,11 @@ function showScoreBoard() {
     scoreHeader.textContent = "SCORE BOARD";
     var user = JSON.parse(localStorage.getItem("players"));
     var score_ul = document.createElement("ol");
+    console.log(user.length);
     for(var i=0; i<user.length; i++){
+        console.log("index: " + i);
         var score_li = document.createElement("li");
-        score_li.innerHTML = "player name: " + user[i].Name + " &emsp; score: " + user[i].Score;
+        score_li.innerHTML = "name: " + user[i][0] + " &emsp; score: " + user[i][1];
         score_ul.appendChild(score_li);
     }
     playboxEl.appendChild(scoreHeader);
