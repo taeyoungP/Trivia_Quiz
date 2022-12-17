@@ -38,67 +38,52 @@ The following animation demonstrates the application functionality:
 ## Description
 Description of the project including the example images
 
-## How to Use and Play
-Guide for how to play, explanation for button and user interface
+> * A link to deployed application: https://taeyoungp.github.io/Trivia_Quiz/
+
+The following image demnonstrate the application functionality:
+![A user clicks Start Game button to start the game, then the timer will start.](./Assets/images/start_menu.png)
+
+When the page is opened, user can see header title with start game button, option to see score board, and timer indication.
+When user start the game, timer will start countdown from 90 seconds, and questions pops up.
+
+![Quiz game has started, and timer starts countdown with questions.](./Assets/images/start_game.png)
+
+When answer is correct, correct message will briefly show on the bottom of question with green color. If answer is incorrect, incorrect message will show up with red color. Then, next question will show after 1 second of correct/incorrect message display.
+
+![Questions are all answered and quiz has finished.](./Assets/images/finished.png)
+
+After finishing the questions, page shows final score and will ask user to submit their username to record the score. User can submit their record, or they can just simply restart the game.
+
+![All questions aren't answered and time is over.](./Assets/images/timeover.png)
+
+Or if the user couldn't answer all of the question in time, quiz will end with message saying "Time Over!". But user can still submit their record or restart quiz.
+
+![User name is submitted and score has been recorded.](./Assets/images/name_submit.png)
+
+Once user name is submitted, user can either view their score on score board or restart the quiz.
+
+![User names and their scores can be seen from scoreboard.](./Assets/images/scoreboard.png)
+
+Score board will sort the list of players by score value, therefore, the player with the most score is placed at the fisrt place of the score baord.
+
+
+## How to play
+This is Guide for the rule and how to play this quiz:
+
+> * User will be asked with total 10 JavaScript related questions. 
+
+> * If the user gets correct answer, will gain score by 1 point. If the user gets wrong answer, 10 seconds from the timer will be substracted (but there wiil be no point taken from the score). 
+
+> * User will be able to record their score result after finishing all 10 questions in time with their user name. User can still record their score even after timer reaches 0 and gamer over message shows up. Submitting their user name and recording their score is optional, but if the user choose to record their score, they must provide user name that isn't empty. 
+
+> * User can see their recorded user name and score in scoreboard page. If user clicks scoreboard in the middle of the quiz, they won't be able to go back and resume the quiz, instead, they have to restart the entire quiz.
+
 
 ## Credits
-Include any tutorial or reference materials that are used and helped to build this project.
+> * This webpage is built to test and simulate the functionality of trivia quiz webpage. All JavaScript online quiz questions are brought from and belong to: https://www.tutorialspoint.com/javascript/javascript_online_quiz.htm
 
-## Grading Requirements
+> * The code and algorithm for function compare were referenced from here: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
 
 ---
 

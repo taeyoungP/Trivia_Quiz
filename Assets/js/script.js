@@ -122,7 +122,7 @@ function compare(p1, p2) {
 //starting Game
 function startGame() {
     startButtonEl.setAttribute("style", "display: none;");
-    countdown = 60;
+    countdown = 90;
     play(i);
     startCountDown();
 }
@@ -132,6 +132,20 @@ function startCountDown() {
     timer = setInterval(function () {
         countdown--;
         timerEl.textContent = "Time: " + countdown;
+        if (countdown === 0) {
+            clearInterval(timer);
+            timerEl.textContent = "Time: " + 0;
+            var timeOver = document.createElement("h1");
+            var endScore = document.createElement("h2");
+            timeOver.textContent = "Time Over!"
+            endScore.textContent = "Your total Score: " + score;
+            playboxEl.textContent = "";
+            playboxEl.appendChild(timeOver);
+            playboxEl.appendChild(endScore);
+    
+            userForm();
+            return;
+        }
     }, 1000);
 }
 
@@ -176,6 +190,7 @@ function userForm() {
     var submit = document.createElement("button");
 
     name.setAttribute("id", "input");
+    name.setAttribute("placeholder", "username");
     submit.textContent = "submit";
     submit.setAttribute("id", "submit");
 
@@ -337,6 +352,8 @@ scoreBoardBtn.addEventListener("click", showScoreBoard);
 // timer will stop
 function showScoreBoard() {
     clearInterval(timer);
+    countdown = 0;
+    timerEl.textContent = "Time: " + countdown;
     playboxEl.textContent = "";
     startButtonEl.setAttribute("style", "display: none;");
     var scoreHeader = document.createElement("h1");
