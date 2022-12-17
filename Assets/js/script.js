@@ -367,20 +367,19 @@ function showScoreBoard() {
         restart();
         return;
     }
-
-    var score_ul = document.createElement("ol");
-    console.log(user.length);
-    for (var i = 0; i < user.length; i++) {
-        console.log("index: " + i);
-        var score_li = document.createElement("li");
-        score_li.innerHTML = user[i][0] + " &emsp;| score: " + user[i][1];
-        score_ul.appendChild(score_li);
+    else{
+        var score_ul = document.createElement("ol");
+        for (var i = 0; i < user.length; i++) {
+            console.log("index: " + i);
+            var score_li = document.createElement("li");
+            score_li.innerHTML = user[i][0] + " &emsp;| score: " + user[i][1];
+            score_ul.appendChild(score_li);
+        }
+        playboxEl.appendChild(score_ul);
+        scoreBoardBtn.disabled = true;
+    
+        restart();
     }
-    playboxEl.appendChild(score_ul);
-    scoreBoardBtn.disabled = true;
-
-    restart();
-
 }
 
 //Restart Quiz
