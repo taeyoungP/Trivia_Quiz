@@ -359,7 +359,15 @@ function showScoreBoard() {
     startButtonEl.setAttribute("style", "display: none;");
     var scoreHeader = document.createElement("h1");
     scoreHeader.textContent = "SCORE BOARD";
+    playboxEl.appendChild(scoreHeader)
+
     var user = JSON.parse(localStorage.getItem("players"));
+
+    if(user === null){
+        restart();
+        return;
+    }
+
     var score_ul = document.createElement("ol");
     console.log(user.length);
     for (var i = 0; i < user.length; i++) {
@@ -368,7 +376,6 @@ function showScoreBoard() {
         score_li.innerHTML = user[i][0] + " &emsp;| score: " + user[i][1];
         score_ul.appendChild(score_li);
     }
-    playboxEl.appendChild(scoreHeader);
     playboxEl.appendChild(score_ul);
     scoreBoardBtn.disabled = true;
 
