@@ -44,7 +44,7 @@ The following image demnonstrate the application functionality:
 ![A user clicks Start Game button to start the game, then the timer will start.](./Assets/images/start_menu.png)
 
 When the page is opened, user can see header title with start game button, option to see score board, and timer indication.
-When user start the game, timer will start countdown from 90 seconds, and questions pops up.
+When user start the game, timer will start countdown from 90 seconds, and questions will pop up.
 
 ![Quiz game has started, and timer starts countdown with questions.](./Assets/images/start_game.png)
 
@@ -64,19 +64,19 @@ Once user name is submitted, user can either view their score on score board or 
 
 ![User names and their scores can be seen from scoreboard.](./Assets/images/scoreboard.png)
 
-Score board will sort the list of players by score value, therefore, the player with the most score is placed at the fisrt place of the score baord.
+In the score board, it will sort the list of players by score value, so the player with the highest score is placed at the fisrt place.
 
 
 ## How to play
-This is Guide for the rule and how to play this quiz:
+Guide for the rule and how to play this quiz:
 
 > * User will be asked with total 10 JavaScript related questions. 
 
-> * If the user gets correct answer, will gain score by 1 point. If the user gets wrong answer, 10 seconds from the timer will be substracted (but there wiil be no point taken from the score). 
+> * If the user gets correct answer, will gain score by 1 point. If the user gets wrong answer, 10 seconds will be substracted from the timer (but there wiil be no point taken from the score). 
 
-> * User will be able to record their score result after finishing all 10 questions in time with their user name. User can still record their score even after timer reaches 0 and gamer over message shows up. Submitting their user name and recording their score is optional, but if the user choose to record their score, they must provide user name that isn't empty. 
+> * User will be able to record their score result after answering all 10 questions in time with their user name. User can still record their score even after timer reaches 0 and quiz is over. Submitting their user name and recording their score is optional, but if the user choose to record their score, they must provide user name that isn't empty. 
 
-> * User can see their recorded user name and score in scoreboard page. If user clicks scoreboard in the middle of the quiz, they won't be able to go back and resume the quiz, instead, they have to restart the entire quiz.
+> * User can see their recorded user name and score in the scoreboard page. If user clicks scoreboard button in the middle of the quiz, they won't be able to go back and resume the quiz, instead, they have to restart the entire quiz.
 
 
 ## Credits

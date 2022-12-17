@@ -153,6 +153,7 @@ function startCountDown() {
 function checkTimer() {
     if ((i === questionList.length) || ((i === questionList.length) && countdown <= 0)) {
         clearInterval(timer);
+        timerEl.textContent = "Time: " + 0;
         var thankyou = document.createElement("h1");
         var endScore = document.createElement("h2");
         thankyou.textContent = "Thank you for playing!"
