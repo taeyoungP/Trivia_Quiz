@@ -359,10 +359,10 @@ function showScoreBoard() {
     startButtonEl.setAttribute("style", "display: none;");
     var scoreHeader = document.createElement("h1");
     scoreHeader.textContent = "SCORE BOARD";
-    playboxEl.appendChild(scoreHeader)
+    playboxEl.appendChild(scoreHeader);
 
     var user = JSON.parse(localStorage.getItem("players"));
-
+    console.log(user);
     if(user === null){
         restart();
         return;
