@@ -3,34 +3,96 @@
 var question1 = {
     question: "Q1. Which of the following is true about variable naming conventions in JavaScript?",
     answers: [
-        "You should not use any of the JavaScript reserved keyword as variable name.", 
-        "JavaScript variable names should not start with a numeral (0-9).", 
-        "Both of the above.", 
+        "You should not use any of the JavaScript reserved keyword as variable name.",
+        "JavaScript variable names should not start with a numeral (0-9).",
+        "Both of the above.",
         "None of the above."],
     answer: "Both of the above."
 }
-
 var question2 = {
     question: "Q2. How can you get the type of arguments passed to a function?",
     answers: [
-        "using typeof operator", 
-        "using getType function", 
-        "Both of the above.", 
+        "using typeof operator",
+        "using getType function",
+        "Both of the above.",
         "None of the above."],
     answer: "using typeof operator"
 }
-
 var question3 = {
     question: "Q3. Which built-in method combines the text of two strings and returns a new string?",
     answers: [
-        "append()", 
-        "concat()", 
-        "attach()", 
+        "append()",
+        "concat()",
+        "attach()",
         "None of the above."],
     answer: "concat()"
 }
+var question4 = {
+    question: "Q4. Which built-in method returns the calling string value converted to upper case?",
+    answers: [
+        "toUpperCase()",
+        "toUpper()",
+        "changeCase(case)",
+        "None of the above."],
+    answer: "toUpperCase()"
+}
+var question5 = {
+    question: "Q5. Which of the following function of String object combines the text of two strings and returns a new string?",
+    answers: [
+        "add()",
+        "merge()",
+        "concat()",
+        "append()"],
+    answer: "concat()"
+}
+var question6 = {
+    question: "Q6. Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
+    answers: [
+        "slice()",
+        "split()",
+        "replace()",
+        "search()"],
+    answer: "split()"
+}
+var question7 = {
+    question: "Q7. Which of the following function of String object creates an HTML anchor that is used as a hypertext target?",
+    answers: [
+        "anchor()",
+        "link()",
+        "blink()",
+        "big()"],
+    answer: "anchor()"
+}
+var question8 = {
+    question: "Q8. Which of the following function of String object causes a string to be displayed as a superscript, as if it were in a <sup> tag?",
+    answers: [
+        "sup()",
+        "small()",
+        "strike()",
+        "sub()"],
+    answer: "sup()"
+}
+var question9 = {
+    question: "Q9. Which of the following function of Array object calls a function for each element in the array?",
+    answers: [
+        "concat()",
+        "every()",
+        "filter()",
+        "forEach()"],
+    answer: "forEach()"
+}
+var question10 = {
+    question: "Q10. Which of the following function of Array object returns a string representing the array and its elements?",
+    answers: [
+        "toSource()",
+        "sort()",
+        "splice()",
+        "toString()"],
+    answer: "toString()"
+}
 
-var questionList = [question1, question2, question3];
+
+var questionList = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 
 var startButtonEl = document.querySelector("#start");
 var scoreEl = document.querySelector("#scorebox");
@@ -48,55 +110,71 @@ var players = [];
 // comparing functino to sort players list by highest score
 // referenced from https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
 function compare(p1, p2) {
-    if(p1[1] > p2[1]){
+    if (p1[1] > p2[1]) {
         return -1;
     }
-    if(p1[1] < p2[1]) {
+    if (p1[1] < p2[1]) {
         return 1;
     }
     return 0;
 }
 
-
 //starting Game
 function startGame() {
     startButtonEl.setAttribute("style", "display: none;");
     countdown = 60;
-    startCountDown();
     play(i);
+    startCountDown();
 }
 
 //starting countdown, will display message time over if countdown hits 0.
 function startCountDown() {
     timer = setInterval(function () {
-
         countdown--;
-
         timerEl.textContent = "Time: " + countdown;
-        if (countdown === 0) { // Time Over
-            clearInterval(timer);
-            var timeOver = document.createElement("h1");
-            var endScore = document.createElement("h2");
-            timeOver.textContent = "Time Over!"
-            endScore.textContent = "Your total Score: " + score;
-            playboxEl.textContent = "";
-            playboxEl.appendChild(timeOver);
-            playboxEl.appendChild(endScore);
-            
-            userForm();
-
-            
-        }
     }, 1000);
+}
+
+//check the remain time left
+function checkTimer() {
+    if ((i === questionList.length) || ((i === questionList.length) && countdown <= 0)) {
+        clearInterval(timer);
+        var thankyou = document.createElement("h1");
+        var endScore = document.createElement("h2");
+        thankyou.textContent = "Thank you for playing!"
+        endScore.textContent = "Your total Score: " + score;
+        playboxEl.textContent = "";
+        playboxEl.appendChild(thankyou);
+        playboxEl.appendChild(endScore);
+
+        userForm();
+        return 0 ;
+    }
+
+    if (countdown <= 0) {
+        clearInterval(timer);
+        timerEl.textContent = "Time: " + 0;
+        var timeOver = document.createElement("h1");
+        var endScore = document.createElement("h2");
+        timeOver.textContent = "Time Over!"
+        endScore.textContent = "Your total Score: " + score;
+        playboxEl.textContent = "";
+        playboxEl.appendChild(timeOver);
+        playboxEl.appendChild(endScore);
+
+        userForm();
+        return 0;
+    }
+    return 1;
 }
 
 //After quiz ends, page ask for user to input their player name to save the score
 //Input for user name must be submitted to be recorded (alert)
-function userForm () {
+function userForm() {
     var form = document.createElement("form");
     var name = document.createElement("input");
     var submit = document.createElement("button");
- 
+
     name.setAttribute("id", "input");
     submit.textContent = "submit";
     submit.setAttribute("id", "submit");
@@ -104,14 +182,15 @@ function userForm () {
     playboxEl.appendChild(form);
     form.appendChild(name);
     form.appendChild(submit);
+    restart();
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
         var nameText = name.value.trim();
 
-        if(nameText === "") {
+        if (nameText === "") {
             alert("Please input player name.");
-        } else{
+        } else {
             storePlayer(nameText);
             form.remove();
             delayTime();
@@ -126,8 +205,8 @@ function userForm () {
 function storePlayer(nameText) {
     var player = [nameText, score];
     var prevPlayer = JSON.parse(localStorage.getItem("players"));
-    if(prevPlayer !== null){
-        for(var i=0; i<prevPlayer.length; i++){
+    if (prevPlayer !== null) {
+        for (var i = 0; i < prevPlayer.length; i++) {
             players.push(prevPlayer[i]);
         }
     }
@@ -139,17 +218,7 @@ function storePlayer(nameText) {
 
 //playing the quiz. If user finishes the game, game will end
 function play(i) {
-    if (i === questionList.length) {
-        clearInterval(timer);
-        var thankyou = document.createElement("h1");
-        var endScore = document.createElement("h2");
-        thankyou.textContent = "Thank you for playing!"
-        endScore.textContent = "Your total Score: " + score;
-        playboxEl.textContent = "";
-        playboxEl.appendChild(thankyou);
-        playboxEl.appendChild(endScore);
-
-        userForm();
+    if(checkTimer() == 0){
         return;
     }
 
@@ -175,28 +244,28 @@ function play(i) {
     var optionButton3 = document.getElementById("option2");
     var optionButton4 = document.getElementById("option3");
 
-    optionButton1.onclick = function(){
+    optionButton1.onclick = function () {
         console.log("choosed number 1");
         checkAnswer(i, optionButton1.textContent);
         disableBtn(optionButton1, optionButton2, optionButton3, optionButton4);
         continuePlay();
-        
+
     }
-    optionButton2.onclick = function(){
+    optionButton2.onclick = function () {
         console.log("choosed number 2");
         checkAnswer(i, optionButton2.textContent);
         disableBtn(optionButton1, optionButton2, optionButton3, optionButton4);
         continuePlay();
 
     }
-    optionButton3.onclick = function(){
+    optionButton3.onclick = function () {
         console.log("choosed number 3");
         checkAnswer(i, optionButton3.textContent);
         disableBtn(optionButton1, optionButton2, optionButton3, optionButton4);
         continuePlay();
 
     }
-    optionButton4.onclick = function(){
+    optionButton4.onclick = function () {
         console.log("choosed number 4");
         checkAnswer(i, optionButton4.textContent);
         disableBtn(optionButton1, optionButton2, optionButton3, optionButton4);
@@ -205,6 +274,7 @@ function play(i) {
 
 }
 
+//disable option button after answering the question
 function disableBtn(btn1, btn2, btn3, btn4) {
     btn1.disabled = true;
     btn2.disabled = true;
@@ -213,39 +283,43 @@ function disableBtn(btn1, btn2, btn3, btn4) {
 }
 
 //check if the selected answer(button) is correct or not and print out the message
-function checkAnswer(i, optionButton){
+function checkAnswer(i, optionButton) {
 
     var msg = document.createElement("p");
-        var answer = questionList[i].answer;
-        console.log(optionButton);
+    var answer = questionList[i].answer;
+    console.log(optionButton);
 
-        if (answer === optionButton) {
-            msg.setAttribute("style", "color: green;");
-            msg.textContent = "Correct";
-            score += 1;
-            playboxEl.appendChild(msg);
+    if (answer === optionButton) {
+        msg.setAttribute("style", "color: green;");
+        msg.textContent = "Correct";
+        score += 1;
+        playboxEl.appendChild(msg);
 
+    } else {
+        msg.setAttribute("style", "color: red;");
+        msg.textContent = "Incorrect";
+        playboxEl.appendChild(msg);
+        if (countdown < 9) {
+            var left = countdown - 1;
+            countdown = countdown - left;
         } else {
-            msg.setAttribute("style", "color: red;");
-            msg.textContent = "Incorrect";
             countdown = countdown - 9; // -9 since countdown is already decrease by 1 by setInterval (-1-9 = -10)
-            playboxEl.appendChild(msg);
-
         }
+    }
 }
 
 // Will continue to play and move to next question after delaying the time 
-function continuePlay(){
-    setTimeout(function() {
+function continuePlay() {
+    setTimeout(function () {
         i++;
         play(i);
-    }, 1200);
+    }, 1000);
 
 }
 
+// delay time by 1 second
 function delayTime() {
-    setTimeout(function() {
-
+    setTimeout(function () {
     }, 1000);
 }
 
@@ -270,7 +344,7 @@ function showScoreBoard() {
     var user = JSON.parse(localStorage.getItem("players"));
     var score_ul = document.createElement("ol");
     console.log(user.length);
-    for(var i=0; i<user.length; i++){
+    for (var i = 0; i < user.length; i++) {
         console.log("index: " + i);
         var score_li = document.createElement("li");
         score_li.innerHTML = user[i][0] + " &emsp;| score: " + user[i][1];
@@ -284,14 +358,15 @@ function showScoreBoard() {
 
 }
 
-function restart(){
+//Restart Quiz
+function restart() {
     var goBack = document.createElement("button");
     goBack.setAttribute("id", "restart")
     goBack.textContent = "Restart Quiz";
     playboxEl.appendChild(goBack);
 
-    goBack.onclick = function(){
+    goBack.onclick = function () {
         location.reload();
-        
+
     }
 }
